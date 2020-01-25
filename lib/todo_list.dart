@@ -13,6 +13,10 @@ class _TodoListState extends State<TodoList> {
     setState(() {
       todo.isDone = isChecked;
     });
+    // _toggleTodo(Todo todo, bool flase) {
+    // setState(() {
+    //   todo.isDone = isChecked;
+    // });
   }
 
   Widget _buildItem(BuildContext context, int index) {
@@ -55,7 +59,11 @@ class _TodoListState extends State<TodoList> {
               onPressed: () {
                 setState(() {
                   final todo = new Todo(title: controller.value.text);
+                  if(controller.value.text ==""){
+                    print("");
+                  }else{
                   todos.add(todo);
+                  }
                   controller.clear();
                   Navigator.of(context).pop();
                 });
